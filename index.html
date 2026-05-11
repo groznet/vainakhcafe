@@ -7,7 +7,7 @@
     <meta name="description" content="Премиум придорожное кафе «Вайнах»: кавказская кухня, мангал, уютные беседки, парковка для фур, молельная комната. Бесплатная доставка от 500₽.">
     <meta name="keywords" content="кафе на трассе, кавказская кухня, Белгатой, придорожное кафе Чечня, парковка фур, шашлык, доставка еды">
     <!-- Tailwind + Font Awesome + Google Fonts (premium) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/assets/js/tailwindcss.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
@@ -58,92 +58,76 @@
 <body class="text-gray-200 antialiased">
 
     <!-- Sticky Header (Dark premium) -->
-    <header class="sticky top-0 z-50 px-2 sm:px-4 pt-2 sm:pt-6">
-        <div class="relative bg-black/75 backdrop-blur-2xl border border-white/10 rounded-[1.8rem] sm:rounded-[2.5rem] overflow-visible">
+<!-- Sticky Header -->
+<header class="sticky top-0 z-50 px-2 sm:px-4 pt-2 sm:pt-6">
+    <div class="relative bg-black/75 backdrop-blur-2xl border border-white/10 rounded-[1.8rem] sm:rounded-[2.5rem] overflow-visible">
 
-            <!-- ambient glow -->
-            <div class="absolute -top-16 left-10 w-56 h-56 bg-amber-500/10 blur-3xl rounded-full hidden sm:block"></div>
-            <div class="absolute -bottom-20 right-0 w-72 h-72 bg-orange-500/10 blur-3xl rounded-full hidden sm:block"></div>
+        <!-- ambient glow -->
+        <div class="absolute -top-16 left-10 w-56 h-56 bg-amber-500/10 blur-3xl rounded-full hidden sm:block"></div>
+        <div class="absolute -bottom-20 right-0 w-72 h-72 bg-orange-500/10 blur-3xl rounded-full hidden sm:block"></div>
 
-            <!-- floating logo -->
-            <div class="absolute -top-3 sm:-top-5 left-3 sm:left-8 z-20">
-                <div class="flex items-center gap-2 sm:gap-4 bg-gradient-to-br from-amber-400 to-orange-500 px-3 sm:px-5 py-2 sm:py-3 rounded-[1.2rem] sm:rounded-[1.8rem] sm:rotate-[-4deg] shadow-2xl">
-
-                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-[1rem] sm:rounded-[1.3rem] bg-black flex items-center justify-center sm:rotate-6">
-                        <i class="fas fa-utensils text-lg sm:text-2xl text-amber-400"></i>
-                    </div>
-
-                    <div class="leading-none">
-                        <div class="text-lg sm:text-3xl font-black text-black tracking-tight">
-                            Вайнах
+        <div class="container mx-auto px-3 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                
+                <!-- logo container -->
+                <div class="relative z-20">
+                    <div class="flex items-center gap-2 sm:gap-4 bg-gradient-to-br from-amber-400 to-orange-500 px-3 sm:px-5 py-2 sm:py-3 rounded-[1.2rem] sm:rounded-[1.8rem] sm:rotate-[-4deg] shadow-2xl">
+                        <div class="w-8 h-8 sm:w-14 sm:h-14 rounded-[0.8rem] sm:rounded-[1.3rem] bg-black flex items-center justify-center sm:rotate-6">
+                            <i class="fas fa-utensils text-sm sm:text-2xl text-amber-400"></i>
                         </div>
-
-                        <div class="hidden sm:block text-[10px] uppercase tracking-[0.25em] text-black/70 mt-1">
-                            Road Side Premium
+                        <div class="leading-none">
+                            <div class="text-sm sm:text-3xl font-black text-black tracking-tight">Вайнах</div>
+                            <div class="hidden sm:block text-[10px] uppercase tracking-[0.25em] text-black/70 mt-1">Road Side Premium</div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- floating cart -->
-            <div class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20">
-                <div class="relative group cursor-pointer" id="cartIconBtn">
-
-                    <div class="absolute inset-0 bg-amber-400/30 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition duration-300"></div>
-
-                    <div class="relative w-12 h-12 sm:w-20 sm:h-20 rounded-[1.2rem] sm:rounded-[2rem] bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center sm:rotate-6 shadow-2xl transition-transform duration-300 sm:group-hover:rotate-12">
-
-                        <i class="fas fa-bag-shopping text-xl sm:text-3xl text-black sm:-rotate-6"></i>
-
-                        <span id="cartCountBadge"
-                            class="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 min-w-[22px] h-[22px] sm:min-w-[30px] sm:h-[30px] px-1 sm:px-2 bg-black text-amber-400 text-[10px] sm:text-sm font-black rounded-full flex items-center justify-center ring-2 sm:ring-4 ring-orange-500">
-                            0
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- content -->
-            <div class="container mx-auto px-3 sm:px-6 py-2">
-
-                <!-- bulky menu -->
-                <nav class="flex justify-center flex-wrap gap-2 sm:gap-4 pt-14 sm:pt-2 pb-2 sm:pb-0">
-
-                    <a href="#home"
-                    class="group relative px-4 sm:px-8 py-2.5 sm:py-4 text-sm sm:text-lg md:text-xl font-black uppercase tracking-wide rounded-[1rem] sm:rounded-[1.5rem] bg-white/5 backdrop-blur-xl overflow-hidden transition-all duration-300 sm:hover:-translate-y-1 sm:hover:rotate-[-2deg]">
-
-                        <span class="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition duration-300"></span>
-
-                        <span class="relative flex items-center gap-2 sm:gap-3">
-                            <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-400"></span>
-                            Главная
+                <!-- menu positioned to the right of logo -->
+                <nav class="flex items-center gap-2 sm:gap-4">
+                    <a href="#home" class="group relative px-3 sm:px-8 py-2 sm:py-4 text-[10px] sm:text-lg font-black uppercase tracking-wide rounded-[0.8rem] sm:rounded-[1.5rem] bg-white/5 backdrop-blur-xl transition-all duration-300">
+                        <span class="relative flex items-center gap-1 sm:gap-3 text-white/90">
+                            <span class="w-1 h-1 sm:w-2 sm:h-2 rounded-full bg-amber-400"></span>
+                            <span class="hidden xs:block">Главная</span>
+                            <i class="fas fa-home xs:hidden"></i>
                         </span>
                     </a>
 
-                    <a href="#menu"
-                    class="group relative px-4 sm:px-8 py-2.5 sm:py-4 text-sm sm:text-lg md:text-xl font-black uppercase tracking-wide rounded-[1rem] sm:rounded-[1.5rem] bg-gradient-to-br from-amber-400 to-orange-500 text-black shadow-2xl sm:hover:scale-105 sm:hover:rotate-2 transition-all duration-300">
-
-                        <span class="relative flex items-center gap-2 sm:gap-3">
-                            <i class="fas fa-fire text-xs sm:text-sm"></i>
+                    <a href="#menu" class="group relative px-3 sm:px-8 py-2 sm:py-4 text-[10px] sm:text-lg font-black uppercase tracking-wide rounded-[0.8rem] sm:rounded-[1.5rem] bg-gradient-to-br from-amber-400 to-orange-500 text-black shadow-xl transition-all duration-300">
+                        <span class="relative flex items-center gap-1 sm:gap-3">
+                            <i class="fas fa-fire text-[10px] sm:text-sm"></i>
                             Меню
                         </span>
                     </a>
 
-                    <a href="#contact"
-                    class="group relative px-4 sm:px-8 py-2.5 sm:py-4 text-sm sm:text-lg md:text-xl font-black uppercase tracking-wide rounded-[1rem] sm:rounded-[1.5rem] bg-white/5 backdrop-blur-xl overflow-hidden transition-all duration-300 sm:hover:-translate-y-1 sm:hover:rotate-[2deg]">
-
-                        <span class="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition duration-300"></span>
-
-                        <span class="relative flex items-center gap-2 sm:gap-3">
-                            <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-orange-400"></span>
-                            Контакты
+                    <a href="#contact" class="group relative px-3 sm:px-8 py-2 sm:py-4 text-[10px] sm:text-lg font-black uppercase tracking-wide rounded-[0.8rem] sm:rounded-[1.5rem] bg-white/5 backdrop-blur-xl transition-all duration-300">
+                        <span class="relative flex items-center gap-1 sm:gap-3 text-white/90">
+                            <span class="w-1 h-1 sm:w-2 sm:h-2 rounded-full bg-orange-400"></span>
+                            <span class="hidden xs:block">Контакты</span>
+                            <i class="fas fa-phone xs:hidden"></i>
                         </span>
                     </a>
-
                 </nav>
+
             </div>
         </div>
-    </header>
+    </div>
+</header>
+
+<!-- Floating Cart (Bottom Right) -->
+<div class="fixed bottom-6 right-6 z-[60] group cursor-pointer" id="cartIconBtn">
+    <!-- glow effect -->
+    <div class="absolute inset-0 bg-amber-400/40 blur-2xl rounded-full opacity-100 group-hover:bg-orange-500/50 transition duration-300"></div>
+
+    <div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-[1.5rem] sm:rounded-[2rem] bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-300 group-hover:scale-110 group-active:scale-95">
+        
+        <i class="fas fa-bag-shopping text-2xl sm:text-3xl text-black"></i>
+
+        <span id="cartCountBadge"
+            class="absolute -top-1 -right-1 min-w-[24px] h-[24px] sm:min-w-[30px] sm:h-[30px] px-1 bg-black text-amber-400 text-xs sm:text-sm font-black rounded-full flex items-center justify-center ring-4 ring-orange-500 shadow-lg">
+            0
+        </span>
+    </div>
+</div>
 
     <main>
         <!-- Hero Section with Parallax & Premium Vibe -->
