@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Вайнах · Придорожное кафе | Трасса Ростов–Баку</title>
+    <meta name="description" content="Премиум придорожное кафе «Вайнах»: кавказская кухня, мангал, уютные беседки, парковка для фур, молельная комната. Бесплатная доставка от 500₽.">
+    <meta name="keywords" content="кафе на трассе, кавказская кухня, Белгатой, придорожное кафе Чечня, парковка фур, шашлык, доставка еды">
+    <!-- Tailwind + Font Awesome + Google Fonts (premium) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        /* custom parallax, smooth & premium touches */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0c10;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        @media (max-width: 768px) {
+            .parallax-bg {
+                background-attachment: scroll;
+            }
+        }
+        .glass-card {
+            background: rgba(30, 32, 38, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 150, 0.2);
+        }
+        .menu-card-premium {
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .menu-card-premium:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.5);
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1c22;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f59e0b;
+            border-radius: 10px;
+        }
+        .gradient-border {
+            background: linear-gradient(135deg, #f59e0b, #b45309);
+        }
+    </style>
+</head>
+<body class="text-gray-200 antialiased">
+
+    <!-- Sticky Header (Dark premium) -->
+    <header class="sticky top-0 z-50 px-2 sm:px-4 pt-2 sm:pt-6">
+        <div class="relative bg-black/75 backdrop-blur-2xl border border-white/10 rounded-[1.8rem] sm:rounded-[2.5rem] overflow-visible">
+
+            <!-- ambient glow -->
+            <div class="absolute -top-16 left-10 w-56 h-56 bg-amber-500/10 blur-3xl rounded-full hidden sm:block"></div>
+            <div class="absolute -bottom-20 right-0 w-72 h-72 bg-orange-500/10 blur-3xl rounded-full hidden sm:block"></div>
+
+            <!-- floating logo -->
+            <div class="absolute -top-3 sm:-top-5 left-3 sm:left-8 z-20">
+                <div class="flex items-center gap-2 sm:gap-4 bg-gradient-to-br from-amber-400 to-orange-500 px-3 sm:px-5 py-2 sm:py-3 rounded-[1.2rem] sm:rounded-[1.8rem] sm:rotate-[-4deg] shadow-2xl">
+
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-[1rem] sm:rounded-[1.3rem] bg-black flex items-center justify-center sm:rotate-6">
+                        <i class="fas fa-utensils text-lg sm:text-2xl text-amber-400"></i>
+                    </div>
+
+                    <div class="leading-none">
+                        <div class="text-lg sm:text-3xl font-black text-black tracking-tight">
+                            Вайнах
+                        </div>
+
+                        <div class="hidden sm:block text-[10px] uppercase tracking-[0.25em] text-black/70 mt-1">
+                            Road Side Premium
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- floating cart -->
+            <div class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20">
+                <div class="relative group cursor-pointer" id="cartIconBtn">
+
+                    <div class="absolute inset-0 bg-amber-400/30 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition duration-300"></div>
+
+                    <div class="relative w-12 h-12 sm:w-20 sm:h-20 rounded-[1.2rem] sm:rounded-[2rem] bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center sm:rotate-6 shadow-2xl transition-transform duration-300 sm:group-hover:rotate-12">
+
+                        <i class="fas fa-bag-shopping text-xl sm:text-3xl text-black sm:-rotate-6"></i>
+
+                        <span id="cartCountBadge"
+                            class="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 min-w-[22px] h-[22px] sm:min-w-[30px] sm:h-[30px] px-1 sm:px-2 bg-black text-amber-400 text-[10px] sm:text-sm font-black rounded-full flex items-center justify-center ring-2 sm:ring-4 ring-orange-500">
+                            0
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- content -->
+            <div class="container mx-auto px-3 sm:px-6 py-2">
+
+                <!-- bulky menu -->
+                <nav class="flex justify-center flex-wrap gap-2 sm:gap-4 pt-14 sm:pt-2 pb-2 sm:pb-0">
+
+                    <a href="#home"
+                    class="group relative px-4 sm:px-8 py-2.5 sm:py-4 text-sm sm:text-lg md:text-xl font-black uppercase tracking-wide rounded-[1rem] sm:rounded-[1.5rem] bg-white/5 backdrop-blur-xl overflow-hidden transition-all duration-300 sm:hover:-translate-y-1 sm:hover:rotate-[-2deg]">
+
+                        <span class="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition duration-300"></span>
+
+                        <span class="relative flex items-center gap-2 sm:gap-3">
+                            <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-400"></span>
+                            Главная
+                        </span>
+                    </a>
+
+                    <a href="#menu"
+                    class="group relative px-4 sm:px-8 py-2.5 sm:py-4 text-sm sm:text-lg md:text-xl font-black uppercase tracking-wide rounded-[1rem] sm:rounded-[1.5rem] bg-gradient-to-br from-amber-400 to-orange-500 text-black shadow-2xl sm:hover:scale-105 sm:hover:rotate-2 transition-all duration-300">
+
+                        <span class="relative flex items-center gap-2 sm:gap-3">
+                            <i class="fas fa-fire text-xs sm:text-sm"></i>
+                            Меню
+                        </span>
+                    </a>
+
+                    <a href="#contact"
+                    class="group relative px-4 sm:px-8 py-2.5 sm:py-4 text-sm sm:text-lg md:text-xl font-black uppercase tracking-wide rounded-[1rem] sm:rounded-[1.5rem] bg-white/5 backdrop-blur-xl overflow-hidden transition-all duration-300 sm:hover:-translate-y-1 sm:hover:rotate-[2deg]">
+
+                        <span class="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition duration-300"></span>
+
+                        <span class="relative flex items-center gap-2 sm:gap-3">
+                            <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-orange-400"></span>
+                            Контакты
+                        </span>
+                    </a>
+
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section with Parallax & Premium Vibe -->
+        <section id="home" class="relative min-h-[90vh] flex items-center parallax-bg" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1601050690597-df0568f70950?w=1600&h=1000&fit=crop');">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-3xl">
+                    <span class="text-amber-400 font-semibold tracking-wider text-sm uppercase border-l-4 border-amber-500 pl-3">Добро пожаловать</span>
+                    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mt-5 drop-shadow-2xl">Кавказский вкус <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">на трассе</span></h1>
+                    <p class="text-xl md:text-2xl mt-5 text-gray-200/90 drop-shadow-md">Лучшие блюда восточной & кавказской кухни. Беседки, парковка для фур, молельная комната. Отличная остановка для водителей и семей.</p>
+                    <div class="flex flex-wrap gap-5 mt-9">
+                        <a href="#menu" class="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold px-8 py-4 rounded-full shadow-2xl transition-all flex items-center gap-2 text-lg"><i class="fas fa-utensil-spoon"></i> Изучить меню</a>
+                        <a href="#contact" class="backdrop-blur-md bg-white/10 border border-white/30 hover:bg-white/20 px-7 py-4 rounded-full font-semibold transition-all text-lg">📍 Проложить маршрут</a>
+                    </div>
+                    <div class="flex flex-wrap gap-6 mt-12 text-sm font-medium">
+                        <span class="bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-truck-fast text-amber-400 mr-2"></i> Бесплатная доставка от 500₽*</span>
+                        <span class="bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-parking text-amber-400 mr-2"></i> Парковка для фур/легковых</span>
+                        <span class="bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-mosque text-amber-400 mr-2"></i> Молельная комната</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advantages / Highlights Premium -->
+        <section class="py-20 bg-gradient-to-b from-gray-900 to-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-amber-500 font-semibold tracking-wider text-sm uppercase">почему мы</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Идеальная остановка в пути</h2>
+                    <p class="text-gray-400 mt-4 text-lg">Просторная территория, премиальный сервис и домашняя кухня — всё для комфорта водителей и путешественников.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <div class="glass-card p-6 rounded-2xl transition-all hover:scale-105"><i class="fas fa-drumstick-bite text-5xl text-amber-400"></i><h3 class="font-bold text-2xl mt-4">Кавказская кухня</h3><p class="text-gray-300 mt-2">Шашлык, хинкал, лагман, жижиг-галнаш — готовим на мангале</p></div>
+                    <div class="glass-card p-6 rounded-2xl transition-all hover:scale-105"><i class="fas fa-tree text-5xl text-amber-400"></i><h3 class="font-bold text-2xl mt-4">Уютные беседки</h3><p class="text-gray-300 mt-2">Отдых на свежем воздухе, тенистые зоны, детский уголок</p></div>
+                    <div class="glass-card p-6 rounded-2xl transition-all hover:scale-105"><i class="fas fa-truck-ramp-box text-5xl text-amber-400"></i><h3 class="font-bold text-2xl mt-4">Парковка фур</h3><p class="text-gray-300 mt-2">Большегрузы, автобусы, легковые — места 24/7</p></div>
+                    <div class="glass-card p-6 rounded-2xl transition-all hover:scale-105"><i class="fas fa-moon text-5xl text-amber-400"></i><h3 class="font-bold text-2xl mt-4">Работаем до 22:00</h3><p class="text-gray-300 mt-2">Ежедневно, горячая еда всегда готова</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU SECTION (Dynamic) Dark Premium Cards -->
+        <section id="menu" class="py-20 bg-black relative">
+            <div class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600')] bg-cover bg-fixed pointer-events-none"></div>
+            <div class="container mx-auto px-6 relative z-2">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">Наше меню</h2>
+                    <p class="text-gray-400 text-lg mt-2">Свежие, сочные блюда для сытного перекуса в дороге</p>
+                </div>
+                <div id="menuContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7">
+                    <!-- js injects menu cards -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & MAP with Glassmorphism -->
+        <section id="contact" class="py-20 bg-gradient-to-br from-gray-900 to-black">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div class="glass-card p-8 rounded-3xl backdrop-blur-md">
+                        <h2 class="text-3xl font-bold text-white">Свяжитесь с нами</h2>
+                        <p class="text-amber-300 mt-2 flex items-center gap-2"><i class="fas fa-map-marker-alt"></i> трасса Ростов–Баку, ул. Бурятская 1, с. Белгатой, Чечня</p>
+                        <div class="mt-7 space-y-5">
+                            <div class="flex items-center gap-4"><i class="fas fa-phone-alt text-amber-500 text-xl w-8"></i> <a href="tel:+79626559780" class="hover:text-amber-400 text-lg">+7 (962) 655-97-80</a></div>
+                            <div class="flex items-center gap-4"><i class="fab fa-whatsapp text-green-500 text-xl w-8"></i> <a href="https://wa.me/79626559780" target="_blank" class="hover:text-amber-400 text-lg">WhatsApp: +7 (962) 655-97-80</a></div>
+                            <div class="flex items-center gap-4"><i class="fas fa-envelope text-amber-500 text-xl w-8"></i> info@vainakh-cafe.ru</div>
+                            <div class="flex gap-6 text-3xl pt-3"><a href="#" class="text-gray-300 hover:text-amber-400 transition"><i class="fab fa-instagram"></i></a><a href="#" class="text-gray-300 hover:text-amber-400 transition"><i class="fab fa-telegram"></i></a><a href="#" class="text-gray-300 hover:text-amber-400 transition"><i class="fab fa-youtube"></i></a></div>
+                        </div>
+                        <div class="mt-8 bg-black/40 p-5 rounded-2xl border border-amber-800/30">
+                            <h3 class="font-bold text-xl flex items-center gap-2"><i class="fas fa-clock text-amber-500"></i> Часы работы</h3>
+                            <p class="text-gray-300">Ежедневно: 08:00 – 22:00</p>
+                            <p class="text-gray-400 text-sm mt-2">🚿 Душ / туалет / молельная комната — круглосуточно</p>
+                        </div>
+                    </div>
+                    <div class="rounded-3xl overflow-hidden shadow-2xl h-96 glass-card border border-white/10">
+                        <iframe class="w-full h-full" src="https://yandex.ru/map-widget/v1/?um=constructor%3Aplaceholder&source=constructor" frameborder="0" allowfullscreen></iframe>
+                        <div class="bg-gray-800/80 h-full flex items-center justify-center text-gray-300 text-sm backdrop-blur-sm">📍 Интерактивная карта: трасса Ростов–Баку, Белгатой (уточняйте маршрут)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-gray-950">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <h2 class="text-4xl font-bold text-center mb-12 text-white">Часто задаваемые вопросы</h2>
+                <div id="faqContainer" class="space-y-5"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black border-t border-amber-900/40 py-10">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400">
+            <div>© 2025 Кафе «Вайнах» — премиум придорожная кухня в Чечне</div>
+            <div class="flex gap-7 text-sm">
+                <a href="#" id="privacyLink" class="hover:text-amber-400">Политика конфиденциальности</a>
+                <a href="#" id="termsLink" class="hover:text-amber-400">Пользовательское соглашение</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CART MODAL (Dark Premium) -->
+    <div id="cartModal" class="fixed inset-0 z-50 hidden modal-overlay bg-black/80 backdrop-blur-md items-center justify-center transition-all">
+        <div class="bg-gray-900 w-full max-w-lg rounded-3xl shadow-2xl mx-4 max-h-[90vh] overflow-y-auto border border-amber-800/30">
+            <div class="sticky top-0 bg-gray-900/90 backdrop-blur-sm p-5 border-b border-gray-800 flex justify-between items-center">
+                <h3 class="text-2xl font-bold flex gap-2"><i class="fas fa-shopping-cart text-amber-500"></i> Корзина</h3>
+                <button id="closeCartModal" class="text-3xl text-gray-400 hover:text-white">&times;</button>
+            </div>
+            <div id="cartItemsList" class="p-5 space-y-4 min-h-[200px]"></div>
+            <div class="border-t border-gray-800 p-5 bg-gray-900/80">
+                <div class="flex justify-between font-bold text-2xl mb-3"><span>Итого:</span><span id="cartTotalSum" class="text-amber-400">0 ₽</span></div>
+                <div class="text-sm bg-amber-900/30 text-amber-300 p-3 rounded-xl mb-4 flex gap-2 items-center"><i class="fas fa-truck-fast"></i> Бесплатная доставка от 500 ₽ (по Белгатой).  А в соседние сёла при заказе — цена уточняется.</div>
+                <input type="tel" id="phoneInput" placeholder="📞 Ваш номер телефона (WhatsApp)" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-xl focus:ring-2 focus:ring-amber-500 text-white mb-4">
+                <div class="flex gap-5 mb-5">
+                    <label class="flex items-center gap-2"><input type="radio" name="orderMethod" value="pickup" checked> <i class="fas fa-store"></i> Самовывоз</label>
+                    <label class="flex items-center gap-2"><input type="radio" name="orderMethod" value="delivery"> <i class="fas fa-truck"></i> Доставка</label>
+                </div>
+                <button id="sendWhatsappOrderBtn" class="w-full bg-gradient-to-r from-green-700 to-green-600 hover:from-green-600 hover:to-green-500 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 text-lg"><i class="fab fa-whatsapp text-xl"></i> Заказать через WhatsApp</button>
+                <p class="text-xs text-gray-500 mt-4 text-center">Менеджер подтвердит детали доставки и стоимость</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ---------- МЕНЮ ДАННЫЕ (30+ позиций, аппетитные изображения) ----------
+
+        async function initApp() {
+            try {
+                const response = await fetch('./data/menu.json');
+                menuData = await response.json();
+
+                renderMenu();
+                updateCartBadge();
+
+            } catch (error) {
+                console.error('Ошибка загрузки меню:', error);
+
+                document.getElementById('menuContainer').innerHTML = `
+                    <div class="col-span-full text-center text-red-400 py-20">
+                        Не удалось загрузить меню 😔
+                    </div>
+                `;
+            }
+        }
+
+        initApp();        
+
+        let cart = JSON.parse(localStorage.getItem('vainakh_cart')) || {};
+
+        function saveCart() { localStorage.setItem('vainakh_cart', JSON.stringify(cart)); }
+        function updateCartBadge() { document.getElementById('cartCountBadge').innerText = Object.values(cart).reduce((a,b)=>a+b,0); }
+
+        function renderMenu() {
+            const container = document.getElementById('menuContainer');
+            let html = '';
+            const cats = [...new Map(menuData.map(i=>[i.category])).keys()];
+            cats.forEach(cat => {
+                html += `<div class="col-span-full"><h3 class="text-3xl font-bold border-l-4 border-amber-500 pl-4 mt-6 mb-4 text-white">${cat}</h3></div>`;
+                menuData.filter(i=>i.category===cat).forEach(item => {
+                    const qty = cart[item.id] || 0;
+                    html += `
+                        <div class="bg-gray-800/70 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 menu-card-premium transition-all">
+                            <img src="${item.image}" class="h-48 w-full object-cover" loading="lazy">
+                            <div class="p-5">
+                                <h4 class="font-bold text-xl text-white">${item.name}</h4>
+                                <p class="text-amber-400 font-bold text-2xl mt-1">${item.price} ₽</p>
+                                <div class="flex justify-between items-center mt-4">
+                                    <div class="flex items-center gap-3 bg-gray-900 rounded-full px-4 py-1.5">
+                                        <button data-id="${item.id}" data-delta="-1" class="cart-qty-btn text-rose-400 font-bold text-2xl w-8 h-8 rounded-full hover:bg-gray-700">−</button>
+                                        <span class="item-qty-${item.id} font-semibold text-white w-7 text-center text-lg">${qty}</span>
+                                        <button data-id="${item.id}" data-delta="1" class="cart-qty-btn text-green-400 font-bold text-2xl w-8 h-8 rounded-full hover:bg-gray-700">+</button>
+                                    </div>
+                                    ${qty > 0 ? `<span class="text-xs bg-amber-800/60 text-amber-200 px-3 py-1 rounded-full">добавлено</span>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            });
+            container.innerHTML = html;
+            document.querySelectorAll('.cart-qty-btn').forEach(btn => btn.addEventListener('click', (e) => {
+                const id = parseInt(btn.dataset.id), delta = parseInt(btn.dataset.delta);
+                let newQty = (cart[id]||0) + delta;
+                if(newQty <= 0) delete cart[id];
+                else cart[id] = newQty;
+                saveCart();
+                renderMenu();
+                updateCartBadge();
+                if(document.getElementById('cartModal').classList.contains('flex')) renderCartModal();
+            }));
+        }
+
+        function renderCartModal() {
+            const listDiv = document.getElementById('cartItemsList');
+            let total = 0, itemsHtml = '';
+            for(let id in cart){
+                const item = menuData.find(i=>i.id==id);
+                if(!item) continue;
+                const qty = cart[id], sum = item.price * qty;
+                total += sum;
+                itemsHtml += `<div class="flex justify-between items-center border-b border-gray-700 pb-3"><div><span class="font-semibold">${item.name}</span> x ${qty}</div><div class="flex items-center gap-3">${sum} ₽<button data-id="${id}" class="cart-remove text-red-400 ml-2"><i class="fas fa-trash-alt"></i></button></div></div>`;
+            }
+            if(!Object.keys(cart).length) itemsHtml = '<div class="text-center text-gray-400 py-10">Корзина пуста. Добавьте блюда из меню 🍖</div>';
+            listDiv.innerHTML = itemsHtml;
+            document.getElementById('cartTotalSum').innerHTML = total + ' ₽';
+            document.querySelectorAll('.cart-remove').forEach(btn => btn.addEventListener('click', (e) => {
+                delete cart[btn.dataset.id];
+                saveCart();
+                renderMenu();
+                updateCartBadge();
+                renderCartModal();
+            }));
+        }
+
+        // Modal handlers
+        const modal = document.getElementById('cartModal');
+        document.getElementById('cartIconBtn').addEventListener('click', () => { renderCartModal(); modal.classList.remove('hidden'); modal.classList.add('flex'); });
+        document.getElementById('closeCartModal').addEventListener('click', () => modal.classList.add('hidden'));
+        modal.addEventListener('click', (e) => { if(e.target===modal) modal.classList.add('hidden'); });
+
+        // WhatsApp send
+        document.getElementById('sendWhatsappOrderBtn').addEventListener('click', () => {
+            const phone = document.getElementById('phoneInput').value.trim();
+            if(!phone) { alert("Укажите номер телефона для связи"); return; }
+            if(Object.keys(cart).length===0) { alert("Корзина пуста"); return; }
+            const method = document.querySelector('input[name="orderMethod"]:checked').value;
+            let itemsText = "", total=0;
+            for(let id in cart){
+                const item = menuData.find(i=>i.id==id);
+                if(item){ itemsText += `${item.name} x${cart[id]} = ${item.price*cart[id]}₽\n`; total += item.price*cart[id]; }
+            }
+            const deliveryNote = (method==='delivery' && total>=500) ? "Доставка бесплатная (по району)." : (method==='delivery' ? "Доставка будет рассчитана оператором." : "Самовывоз.");
+            const msg = `🍽️ ЗАКАЗ КАФЕ ВАЙНАХ 🍽️\n\n${itemsText}\n💰 Итого: ${total}₽\n🚚 ${method==='delivery'?'Доставка':'Самовывоз'}\n${deliveryNote}\n📞 Телефон: ${phone}\n📍 Адрес кафе: трасса Ростов–Баку, Белгатой. Ждём подтверждение!`;
+            window.open(`https://wa.me/79626559780?text=${encodeURIComponent(msg)}`,'_blank');
+        });
+
+        // FAQ data
+        const faqData = [
+            {q:"Есть ли парковка для фур?", a:"Да, просторная стоянка для грузовых авто, автобусов и легковых. Охраняемая территория."},
+            {q:"Доставка работает?", a:"Да, доставляем по Белгатой и соседним сёлам. Бесплатно от 500₽. Точную стоимость сообщит оператор."},
+            {q:"Есть молельная комната?", a:"Да, при кафе оборудована чистая комната для намаза."},
+            {q:"Какие способы оплаты?", a:"Наличные, карты (Visa, MasterCard, МИР), перевод на карту."}
+        ];
+        document.getElementById('faqContainer').innerHTML = faqData.map(f=>`<div class="bg-gray-800/50 rounded-2xl p-5 border border-gray-700"><h3 class="font-bold text-xl text-amber-400">❓ ${f.q}</h3><p class="text-gray-300 mt-2">${f.a}</p></div>`).join('');
+        document.getElementById('privacyLink').addEventListener('click',e=>{e.preventDefault(); alert("Политика конфиденциальности: данные используются только для оформления заказов.");});
+        document.getElementById('termsLink').addEventListener('click',e=>{e.preventDefault(); alert("Соглашение: используя сайт, вы принимаете условия обработки заказов через WhatsApp.");});
+        renderMenu();
+        updateCartBadge();
+    </script>
+</body>
+</html>

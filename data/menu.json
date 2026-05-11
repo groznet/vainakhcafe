@@ -1,0 +1,211 @@
+[
+    {
+        "id": 1,
+        "name": "Суп домашний куриный",
+        "category": "Первые блюда",
+        "price": 200,
+        "image": "/assets/images/food/chicken-soup.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Борщ классический",
+        "category": "Первые блюда",
+        "price": 220,
+        "image": "/assets/images/food/borscht.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Суп с тефтелями",
+        "category": "Первые блюда",
+        "price": 210,
+        "image": "/assets/images/food/meatball-soup.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Лагман",
+        "category": "Первые блюда",
+        "price": 250,
+        "image": "/assets/images/food/lagman.jpg"
+    },
+
+    {
+        "id": 5,
+        "name": "Плов с говядиной",
+        "category": "Вторые блюда",
+        "price": 320,
+        "image": "/assets/images/food/beef-plov.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Котлеты с гарниром",
+        "category": "Вторые блюда",
+        "price": 280,
+        "image": "/assets/images/food/cutlets-side.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Манты",
+        "category": "Вторые блюда",
+        "price": 300,
+        "image": "/assets/images/food/manti.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Сладкий плов",
+        "category": "Вторые блюда",
+        "price": 250,
+        "image": "/assets/images/food/sweet-plov.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Макароны по-флотски",
+        "category": "Вторые блюда",
+        "price": 230,
+        "image": "/assets/images/food/fleet-pasta.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Чепалг / хинкал",
+        "category": "Вторые блюда",
+        "price": 270,
+        "image": "/assets/images/food/chepalg-hinkal.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Блинчики домашние",
+        "category": "Вторые блюда",
+        "price": 200,
+        "image": "/assets/images/food/pancakes.jpg"
+    },
+
+    {
+        "id": 12,
+        "name": "Жижиг-галнаш",
+        "category": "Мангал",
+        "price": 350,
+        "image": "/assets/images/food/zhizhig-galnash.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Шашлык (баранина)",
+        "category": "Мангал",
+        "price": 550,
+        "image": "/assets/images/food/lamb-kebab.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Шашлык (говядина)",
+        "category": "Мангал",
+        "price": 500,
+        "image": "/assets/images/food/beef-kebab.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Шашлык куриный",
+        "category": "Мангал",
+        "price": 450,
+        "image": "/assets/images/food/chicken-kebab.jpg"
+    },
+    {
+        "id": 16,
+        "name": "Стейк из говядины на гриле",
+        "category": "Мангал",
+        "price": 650,
+        "image": "/assets/images/food/beef-steak.jpg"
+    },
+
+    {
+        "id": 17,
+        "name": "Салат овощной",
+        "category": "Салаты",
+        "price": 180,
+        "image": "/assets/images/food/vegetable-salad.jpg"
+    },
+    {
+        "id": 18,
+        "name": "Цезарь",
+        "category": "Салаты",
+        "price": 280,
+        "image": "/assets/images/food/caesar.jpg"
+    },
+
+    {
+        "id": 19,
+        "name": "Лаваш",
+        "category": "Выпечка",
+        "price": 70,
+        "image": "/assets/images/food/lavash.jpg"
+    },
+    {
+        "id": 20,
+        "name": "Чебурек",
+        "category": "Выпечка",
+        "price": 150,
+        "image": "/assets/images/food/cheburek.jpg"
+    },
+
+    {
+        "id": 21,
+        "name": "Чай (чёрный / зелёный)",
+        "category": "Напитки",
+        "price": 120,
+        "image": "/assets/images/food/tea.jpg"
+    },
+    {
+        "id": 22,
+        "name": "Кофе",
+        "category": "Напитки",
+        "price": 150,
+        "image": "/assets/images/food/coffee.jpg"
+    },
+    {
+        "id": 23,
+        "name": "Соки",
+        "category": "Напитки",
+        "price": 120,
+        "image": "/assets/images/food/juice.jpg"
+    },
+    {
+        "id": 24,
+        "name": "Вода",
+        "category": "Напитки",
+        "price": 80,
+        "image": "/assets/images/food/water.jpg"
+    },
+    {
+        "id": 25,
+        "name": "Мохито",
+        "category": "Напитки",
+        "price": 180,
+        "image": "/assets/images/food/mojito.jpg"
+    },
+
+    {
+        "id": 26,
+        "name": "Пироженые",
+        "category": "Десерты",
+        "price": 150,
+        "image": "/assets/images/food/cakes.jpg"
+    },
+    {
+        "id": 27,
+        "name": "Малиновое варенье",
+        "category": "Десерты",
+        "price": 90,
+        "image": "/assets/images/food/raspberry-jam.jpg"
+    },
+    {
+        "id": 28,
+        "name": "Клубничное варенье",
+        "category": "Десерты",
+        "price": 90,
+        "image": "/assets/images/food/strawberry-jam.jpg"
+    },
+    {
+        "id": 29,
+        "name": "Снеки",
+        "category": "Десерты",
+        "price": 100,
+        "image": "/assets/images/food/snacks.jpg"
+    }
+]
